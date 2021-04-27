@@ -1,0 +1,46 @@
+
+  792  mkdir cursor_git
+  793  cd cursor_git/
+  794  touch first.py
+  795  git add first.py
+  796  git cm -m'adding first.py'
+  797  git log
+  798  touch second.py
+  799  git add second.py
+  800  git cm -m'adding second.py'
+  801  rm first.py
+  802  git add first.py
+  803  git cm -m'removing first.py'
+  804  git log
+  805  git remote add origin git@github.com:blestem/CURSOR_Martian-Manhunter_HW-.git
+  806  git remote -v
+  807  git push
+  808  git push --set-upstream origin master
+  809  git br first
+  810  git branch -d first
+  811  git branch -d second
+  812  git br first
+  813  git ch -b 'second'
+  814  echo 'print("Hello")' > second.py
+  815  git stash
+  816  git ch first
+  817  git ch second
+  818  git stash pop
+  819  git add second.py
+  820  git cm -m'Changing second.py'
+  821  git push
+  822  git push --set-upstream origin second
+  823  git ch first
+  824  echo 'print("Cursor")' > second.py
+  825  git add second.py
+  826  git cm -m'Changing second.py'
+  827  git push --set-upstream origin first
+  828  git ch master
+  829  git merge second
+  830  git merge first
+  831  subl second.py
+  832  cat second.py
+  833  git add second.py
+  834  git cm -m'Merging second.py'
+  835  git push
+

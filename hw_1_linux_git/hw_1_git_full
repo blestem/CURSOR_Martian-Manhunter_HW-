@@ -1,0 +1,151 @@
+katherina@katherina-HP-Notebook:~$ mkdir cursor_git
+katherina@katherina-HP-Notebook:~$ cd cursor_git/
+katherina@katherina-HP-Notebook:~/cursor_git$ touch first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git add first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git cm -m'adding first.py'
+[master b2d52c8] adding first.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cursor_git/first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git log
+commit b2d52c892412e809ac2c8855aa15d4bfbfc06298 (HEAD -> master)
+Author: Katherina Khomenko <hs.kaya.hs@gmail.com>
+Date:   Wed Apr 28 00:17:43 2021 +0300
+
+    adding first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ touch second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git add second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git cm -m'adding second.py'
+[master fb7157c] adding second.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cursor_git/second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ rm first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git add first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git cm -m'removing first.py'
+[master 6930e19] removing first.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 cursor_git/first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git log
+commit 6930e196f8bcf04e32e61c81fa03bc1228377185 (HEAD -> master)
+Author: Katherina Khomenko <hs.kaya.hs@gmail.com>
+Date:   Wed Apr 28 00:19:50 2021 +0300
+
+    removing first.py
+
+commit fb7157ceaa7740519b28c3b380b1a0b372c8e65d
+Author: Katherina Khomenko <hs.kaya.hs@gmail.com>
+Date:   Wed Apr 28 00:18:45 2021 +0300
+
+    adding second.py
+
+commit b2d52c892412e809ac2c8855aa15d4bfbfc06298
+Author: Katherina Khomenko <hs.kaya.hs@gmail.com>
+Date:   Wed Apr 28 00:17:43 2021 +0300
+
+    adding first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git remote add origin git@github.com:blestem/CURSOR_Martian-Manhunter_HW-.git
+katherina@katherina-HP-Notebook:~/cursor_git$ git remote -v
+origin	git@github.com:blestem/CURSOR_Martian-Manhunter_HW-.git (fetch)
+origin	git@github.com:blestem/CURSOR_Martian-Manhunter_HW-.git (push)
+katherina@katherina-HP-Notebook:~/cursor_git$ git push
+fatal: Поточна гілка master не має гілки upstream.
+Щоб надіслати поточну гілку й встановити зовнішню гілку як гілку upstream, використовуйте
+    git push --set-upstream origin master
+
+katherina@katherina-HP-Notebook:~/cursor_git$ git push --set-upstream origin master
+Enumerating objects: 47, виконано.
+Підрахунок об’єктів: 100% (47/47), виконано.
+Delta compression using up to 4 threads
+Стиснення об’єктів: 100% (26/26), виконано.
+Запис об’єктів: 100% (47/47), 3.84 KiB | 280.00 KiB/s, виконано.
+Total 47 (delta 6), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), done.
+To github.com:blestem/CURSOR_Martian-Manhunter_HW-.git
+ * [new branch]      master -> master
+katherina@katherina-HP-Notebook:~/cursor_git$ git br first
+katherina@katherina-HP-Notebook:~/cursor_git$ git ch -b 'second'
+Перейшов до нової гілки «second»
+katherina@katherina-HP-Notebook:~/cursor_git$ echo 'print("Hello")' > second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git stash
+Saved working directory and index state WIP on second: 6930e19 removing first.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git ch first
+Перейшов до гілки «first»
+katherina@katherina-HP-Notebook:~/cursor_git$ git ch second
+Перейшов до гілки «second»
+katherina@katherina-HP-Notebook:~/cursor_git$ git stash pop
+На гілці second
+Зміни не споряджені для коміту
+  (використовуйте «git add/rm <file>...» щоб оновити дані, котрі будуть збережені в коміті)
+  (use "git restore <file>..." to discard changes in working directory)
+жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+Dropped refs/stash@{0} (6f29d57b0c8b659edb1e907e29f6280102e68a65)
+katherina@katherina-HP-Notebook:~/cursor_git$ git add second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git cm -m'Changing second.py'
+[second 1d890a9] Changing second.py
+ 1 file changed, 1 insertion(+)
+katherina@katherina-HP-Notebook:~/cursor_git$ git push
+fatal: Поточна гілка second не має гілки upstream.
+Щоб надіслати поточну гілку й встановити зовнішню гілку як гілку upstream, використовуйте
+    git push --set-upstream origin second
+
+katherina@katherina-HP-Notebook:~/cursor_git$ git push --set-upstream origin second
+Enumerating objects: 7, виконано.
+Підрахунок об’єктів: 100% (7/7), виконано.
+Delta compression using up to 4 threads
+Стиснення об’єктів: 100% (2/2), виконано.
+Запис об’єктів: 100% (4/4), 363 bytes | 181.00 KiB/s, виконано.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'second' on GitHub by visiting:
+remote:      https://github.com/blestem/CURSOR_Martian-Manhunter_HW-/pull/new/second
+remote: 
+To github.com:blestem/CURSOR_Martian-Manhunter_HW-.git
+ * [new branch]      second -> second
+Гілка «second» відслідковує зовнішню гілку «second» з «origin».
+katherina@katherina-HP-Notebook:~/cursor_git$ git ch first
+Перейшов до гілки «first»
+katherina@katherina-HP-Notebook:~/cursor_git$ echo 'print("Cursor")' > second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git add second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git cm -m'Changing second.py'
+[first 1dc1a36] Changing second.py
+ 1 file changed, 1 insertion(+)
+katherina@katherina-HP-Notebook:~/cursor_git$ git push --set-upstream origin first
+Enumerating objects: 7, виконано.
+Підрахунок об’єктів: 100% (7/7), виконано.
+Delta compression using up to 4 threads
+Стиснення об’єктів: 100% (2/2), виконано.
+Запис об’єктів: 100% (4/4), 364 bytes | 364.00 KiB/s, виконано.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'first' on GitHub by visiting:
+remote:      https://github.com/blestem/CURSOR_Martian-Manhunter_HW-/pull/new/first
+remote: 
+To github.com:blestem/CURSOR_Martian-Manhunter_HW-.git
+ * [new branch]      first -> first
+Гілка «first» відслідковує зовнішню гілку «first» з «origin».
+katherina@katherina-HP-Notebook:~/cursor_git$ git ch master
+Ваша гілка актуалізована з «origin/master».
+katherina@katherina-HP-Notebook:~/cursor_git$ git merge second
+Оновлення 6930e19..1d890a9
+Fast-forward
+ cursor_git/second.py | 1 +
+ 1 file changed, 1 insertion(+)
+katherina@katherina-HP-Notebook:~/cursor_git$ git merge first
+Автоматичне злиття cursor_git/second.py
+КОНФЛІКТ (вміст): Конфлікт злиття в cursor_git/second.py
+Не вдалося провести автоматичне злиття; виправте конфлікти й зробіть коміт результату.
+katherina@katherina-HP-Notebook:~/cursor_git$ subl second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ cat second.py
+print("Hello Cursor")
+katherina@katherina-HP-Notebook:~/cursor_git$ git add second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git cm -m'Merging second.py'
+[master 8ba7a9e] Merging second.py
+katherina@katherina-HP-Notebook:~/cursor_git$ git push
+Enumerating objects: 10, виконано.
+Підрахунок об’єктів: 100% (10/10), виконано.
+Delta compression using up to 4 threads
+Стиснення об’єктів: 100% (2/2), виконано.
+Запис об’єктів: 100% (4/4), 396 bytes | 132.00 KiB/s, виконано.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:blestem/CURSOR_Martian-Manhunter_HW-.git
+   6930e19..8ba7a9e  master -> master
+
