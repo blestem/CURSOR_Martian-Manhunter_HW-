@@ -1,0 +1,49 @@
+603  cd Документи/cursore_adv
+  604  mkdir linux_lecture && touch notes.txt
+  605  cp notes.txt linux_lecture
+  606  ll linux_lecture/
+  607  cd ~
+  608  ls -lar
+  609  mv notes.txt new_notes.txt
+  610  cd Документи/cursore_adv/linux_lecture
+  611* 
+  612  ls
+  613  rm -f  notes.txt new_notes.txt
+  614  ls
+  615  touch homework.sh
+  616  touch -m -t202001010415.00 homework.sh
+  617  ll
+  618  touch hw.sh, hw1.sh, hw2.sh, hw1.txt
+  619  ls
+  620* ls | grep\\.txt
+  621  ls | grep \\.txt
+  622  mkdir lecture_new
+  623  cp *.txt lecture_new
+  624  echo 'echo"linux_lecture"' > homework.sh
+  625  cat homework.sh
+  626  ll
+  627  chmod 264 homework.sh
+  628  cat homework.sh
+  629  chmod 764 homework.sh
+  630  cat homework.sh
+  631  ./homework.sh
+  632  xdg-open homework.sh
+  633  head -7 homework.sh
+  634  xdg-open homework.sh
+  635  head -7 homework.sh
+  636  xdg-open homework.sh
+  637  head -7 homework.sh
+  638  xdg-open homework.sh
+  639  head -7 homework.sh
+  640  subl homework.sh
+  641  head -7 homework.sh
+  642  touch notes.sh && echo "ls" > notes.sh
+  643  ./notes.sh
+  644  sudo ./notes.sh
+  645  sudo./notes.sh
+  646  ді
+  647  ls
+  648  ./notes.sh
+  649  bash ./
+  650  bash ./notes.sh
+  651  history
