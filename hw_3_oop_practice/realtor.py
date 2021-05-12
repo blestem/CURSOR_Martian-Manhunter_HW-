@@ -39,7 +39,7 @@ class Human(Person, ABC):
             print('This house is too big for me. Maybe you have other suggestions?')
         elif house.cost >= self.available_money:
             print(f'{self.name} does not have enough money to buy this house.')
-        elif realtor.steal_money() <= 50:
+        elif realtor.steal_money() <= 10:
             self.available_money -= house.cost
             print(f'{realtor.name} turned out to be a thief and stole my money')
         else:
