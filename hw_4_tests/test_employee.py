@@ -38,13 +38,6 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.test_employee.monthly_schedule('may'), 'Bad Response!')
 
 
-
-    # def test_monthly_schedule(requests_mock):
-    #     requests_mock.get("http://company.com", text='month', status='Bad Response!')
-    #     employee = Employee()
-    #     assert employee.send_requests().ok
-    #     assert employee.send_requests().status
-
-
+        
 if __name__ == '__main__':
     unittest.main()
