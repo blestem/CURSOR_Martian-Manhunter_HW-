@@ -92,8 +92,15 @@ class Realtor(metaclass=RealtorMeta):
     def give_discount(self):
         return self.discount
 
-    def steal_money(self):
-        return random.randrange(0, 100)
+     def steal_money(self):
+        money = random.randrange(0, 100)
+        if money <= 0:
+            print(f'{self.name} is an honest realtor')
+        else:
+            print(f'{self.name} steel your money')
+
+    def sold_house(self, house):
+        self.houses.remove(house)
 
 
 if __name__ == '__main__':
@@ -102,14 +109,17 @@ if __name__ == '__main__':
     house3 = House(150, 20000)
 
     realtor = Realtor('Jan', 0.20, [house1, house2, house3])
-    realtor.info_houses()
-    realtor.give_discount()
-    realtor.steal_money()
-
     person = Human('Anna', 34, 20000)
+
     person.info()
     person.make_money()
+    realtor.info_houses()
     person.buy_house(house2)
+    realtor.info_houses()
     person.buy_house(house3)
+    realtor.info_houses()
     person.buy_house(house1)
-
+    realtor.give_discount()
+    realtor.steal_money()
+    realtor.sold_house(house1)
+    realtor.info_houses()
