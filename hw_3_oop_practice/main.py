@@ -13,3 +13,4 @@ if __name__ == '__main__':
     realtor.give_discount()
     realtor.sold_house(house1)
     realtor.info_houses()
+

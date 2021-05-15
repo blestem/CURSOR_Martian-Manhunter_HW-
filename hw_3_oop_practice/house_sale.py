@@ -110,3 +110,4 @@ house3 = House(150, 20000)
 realtor = Realtor('Jan', 0.20, [house1, house2, house3])
 person = Human('Anna', 34, 20000)
 
+
