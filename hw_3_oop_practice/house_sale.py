@@ -39,9 +39,9 @@ class Human(Person, ABC):
             print('This house is too big for me. Maybe you have other suggestions?')
         elif house.cost >= self.available_money:
             print(f'{self.name} does not have enough money to buy this house.')
-        elif realtor.steal_money() <= 10:
+        elif Realtor.steal_money() <= 10:
             self.available_money -= house.cost
-            print(f'{realtor.name} turned out to be a thief and stole my money')
+            print('Realtor turned out to be a thief and stole my money')
         else:
             self.available_money -= house.cost
             print(f'Congratulations to {self.name} on buying a house')
@@ -96,18 +96,10 @@ class Realtor(metaclass=RealtorMeta):
     def give_discount(self):
         return self.discount
 
-    def steal_money(self):
+    @staticmethod
+    def steal_money():
         return random.randrange(0, 100)
 
     def sold_house(self, house):
         self.houses.remove(house)
-
-
-house1 = House(40, 15000)
-house2 = House(165, 60000)
-house3 = House(150, 20000)
-
-realtor = Realtor('Jan', 0.20, [house1, house2, house3])
-person = Human('Anna', 34, 20000)
-
 
