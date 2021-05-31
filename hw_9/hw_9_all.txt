@@ -1,4 +1,4 @@
---1-- 
+---1---
 katherina@katherina-HP-Notebook:~$ docker images
 REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
 test_flask    latest    769daf061aaf   3 days ago     422MB
@@ -32,7 +32,7 @@ manifest.json
 repositories
 katherina@katherina-HP-Notebook:~/ubuntu-all$ 
 
---2-- 
+---2---
 katherina@katherina-HP-Notebook:~/PycharmProjects/CURSOR_Martian-Manhunter_HW-/hw_9$ docker build -t rome .
 Sending build context to Docker daemon  2.048kB
 Step 1/5 : FROM ubuntu:20.04
