@@ -1,9 +1,6 @@
 import unittest
 from hw_5_tests_practice.game import TicTacToe
 
-import HTMLTestRunner
-import xmlrunner
-
 
 class TestWinner(unittest.TestCase):
     def setUp(self):
@@ -40,7 +37,3 @@ class TestWinner(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
-

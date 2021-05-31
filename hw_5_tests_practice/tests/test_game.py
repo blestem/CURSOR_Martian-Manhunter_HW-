@@ -13,3 +13,4 @@ def test_make_move():
     assert game.make_move(4, "X") is False
     assert game.make_move(5, "X") is True
     assert game.board[5] != " "
+
