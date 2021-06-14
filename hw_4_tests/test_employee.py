@@ -38,6 +38,5 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.test_employee.monthly_schedule('may'), 'Bad Response!')
 
 
-        
 if __name__ == '__main__':
     unittest.main()
