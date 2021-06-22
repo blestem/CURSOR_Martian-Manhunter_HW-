@@ -18,7 +18,7 @@ services:
     working_dir: /application
     volumes:
       - .:/application
-      - ./docker/mysql:/var/lib/mysql
+      - ./docker/mysql:/var/lib/mysq
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=flask

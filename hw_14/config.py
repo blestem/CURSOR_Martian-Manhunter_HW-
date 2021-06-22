@@ -17,21 +17,6 @@ class Config:
             'link': '/categories',
         },
     ]
-    FOOTER_LINKS = [
-        {
-            'name': "Home",
-            'link': "/"
-        },
-        {
-            'name': "About us",
-            'link': "/about_us"
-        },
-        {
-            'name': "Help",
-            'link': "/help"
-        },
-
-    ]
 
 
 def articles():

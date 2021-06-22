@@ -11,6 +11,7 @@ RUN pip install Flask-SQLAlchemy
 
 COPY . /usr/src/app/
 
+COPY ./requirements.txt /application/requirements.txt
 RUN pip install -r requirements.txt
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
