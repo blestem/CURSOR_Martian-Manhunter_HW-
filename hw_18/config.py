@@ -23,6 +23,26 @@ class Config:
             'link': '/categories',
         },
     ]
+    FOOTER_LINKS = [
+        {
+            'name': "Home",
+            'link': "/"
+        },
+        {
+            'name': "About us",
+            'link': "/about_us"
+        },
+        {
+            'name': "Help",
+            'link': "/help"
+        },
+
+    ]
+    FOOTER_INFO = {
+        "address": "Zamarstynivska 79, Lviv",
+        "contact phone": "+ 38 (067) 527 41 31",
+        "email": "cursor@gmail.com"
+    }
 
 
 def articles():

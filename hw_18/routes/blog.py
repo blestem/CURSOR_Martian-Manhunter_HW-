@@ -1,11 +1,12 @@
 import os
 import datetime
-from app import app, api, db
+from app import app, api, db, mail
 from flask import render_template, request, Response, redirect, session
 from config import Config, articles
 from flask_restful import Resource, Api
 from models.models import Article, User
 from helpers.additional_functions import check_password, log_in
+from flask_mail import Mail, Message
 
 
 @app.route('/', methods=["GET"])
@@ -31,15 +32,31 @@ def user_store():
         password=data.get('password'),
         bio=data.get('description'),
         created=datetime.datetime.now(),
-        location=data.get('location'),
         admin=0,
+        activated=0,
+
     )
 
     db.session.add(user)
     db.session.commit()
 
     session['user'] = user.serialize
-    return redirect("/")
+
+    msg = Message('Hell', sender=Config.MAIL_USERNAME, recipients=[data.get('email')])
+    msg.html = render_template('blog/emails/activated.html', data=data)
+    mail.send(msg)
+
+    return render_template('blog/activate.html')
+
+
+@app.route('/activate/<string:email>')
+def activate(email):
+    user = User.query.filter_by(email=email).first()
+    user.activate = 1
+    db.session.commit()
+    session['user'] = user.serialize
+    return render_template('blog/activate.html')
+
 
 
 @app.route('/sign-in', methods=['GET'])
