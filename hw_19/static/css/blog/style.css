@@ -1,4 +1,4 @@
-habody {
+body {
     margin: 0;
     padding: 0;
 }
@@ -14,4 +14,19 @@ habody {
 .header a:hover {
     color: white;
     text-decoration: underline;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a:hover {
+    color: #2c3034;
+    text-decoration: underline;
+}
+
+.footer a {
+    color: #2c3034;
 }
