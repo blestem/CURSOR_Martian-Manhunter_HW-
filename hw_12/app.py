@@ -1,4 +1,6 @@
 # flask_web/app.py
+import json
+
 from flask import Flask, render_template, request, jsonify, Response
 from flask_restful import Resource, Api
 import requests
@@ -41,14 +43,20 @@ class Todo(Resource):
 
     def get(self, todo_id):
         try:
-            data = {todo_id: todos[todo_id]}
+            with open('data/todo_' + str(todo_id) + '.json', 'r') as read_file:
+                data = json.load(read_file)
+            read_file.close()
         except KeyError:
             return Response("Not found", status=404)
         return data
 
     def put(self, todo_id):
         todos[todo_id] = request.json.get('text')
-        return {todo_id: todos[todo_id]}
+        data = {todo_id: todos[todo_id]}
+        with open('data/todo_' + str(todo_id) + '.json', 'r') as write_file:
+            json.dumps(data, write_file)
+        write_file.close()
+        return data
 
     def delete(self, todo_id):
         del todos[todo_id]
@@ -81,7 +89,7 @@ class Weather(Resource):
         response = requests.request("GET", url, headers=headers, params=querystring)
         if response.status_code == 200:
             data = response.text
-            return  data
+            return data
 
         return Response(status=404)
 
