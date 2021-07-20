@@ -42,12 +42,12 @@ def test_weather(client):
     Config.WEATHER_API_URL="https://community-open-weather-map.p.rapidapi.com/find"
     Config.WEATHER_API_HOST="community-open-weather-map.p.rapidapi.com"
     response = client.get('/weather?city=Lviv')
-    assert response.status_code == 404
+    assert response.status_code == 200
     response = client.get('/weather?city=London,Lviv,Kiev')
-    assert response.status_code == 404
+    assert response.status_code == 200
     response = client.get('/weather?city=, ,')
-    assert response.status_code == 404
+    assert response.status_code == 200
     response = client.get('/weather?city=London, L')
-    assert response.status_code == 404
+    assert response.status_code == 200
     response = client.get('/weather?city=L')
     assert response.status_code == 404
