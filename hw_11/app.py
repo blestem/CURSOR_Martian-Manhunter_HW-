@@ -1,10 +1,14 @@
-# flask_web/app.py
 from flask import Flask, render_template, request, jsonify, Response
 from flask_restful import Resource, Api
 import requests
 from config import Config
 
 app = Flask(__name__)
+
+HEADERS = {
+    'x-rapidapi-key': Config.WEATHER_API_KEY,
+    'x-rapidapi-host': Config.WEATHER_API_HOST
+}
 
 
 @app.route('/', methods=['GET'])
@@ -14,7 +18,6 @@ def homepage():
 
 @app.route('/search', methods=['POST'])
 def search_weather():
-
     weather = []
     cities = request.form.get("cities")
     cities = cities.replace(" ", " ")
@@ -23,12 +26,7 @@ def search_weather():
         querystring = {"q": city, "cnt": "1", "mode": "null", "lon": "", "type": "link, accurate", "lat": "",
                        "units": "metric"}
 
-    headers = {
-        'x-rapidapi-key': Config.WEATHER_API_KEY,
-        'x-rapidapi-host': Config.WEATHER_API_HOST
-    }
-
-    response = requests.request("GET", Config.WEATHER_API_URL, headers=headers, params=querystring)
+    response = requests.request("GET", Config.WEATHER_API_URL, headers=HEADERS, params=querystring)
     if response.status_code == 200:
         data = response.json()
         try:
@@ -48,19 +46,14 @@ def search_weather_l_l():
     querystring = {"q": "", "cnt": "1", "mode": "null", "lon": lon, "type": "link, accurate", "lat": lat,
                    "units": "metric"}
 
-    headers = {
-        'x-rapidapi-key': Config.WEATHER_API_KEY,
-        'x-rapidapi-host': Config.WEATHER_API_HOST
-    }
-    response = requests.request("GET", Config.WEATHER_API_URL, headers=headers, params=querystring)
+    response = requests.request("GET", Config.WEATHER_API_URL, headers=HEADERS, params=querystring)
     data = response.json()
 
     if response.status_code == 200:
         weather.append(data['list'][0])
         return render_template("weather.html", weather=weather)
-    else:
-        return Response(status=404)
 
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
