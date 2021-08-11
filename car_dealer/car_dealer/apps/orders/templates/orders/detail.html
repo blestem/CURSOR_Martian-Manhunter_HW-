@@ -1,0 +1,8 @@
+<h1>Order: {{ order.first_name }} {{ order.second_name }}</h1>
+<div>
+    <p>Пошта: {{ order.email }}</p>
+    <p>Телефон: {{ order. phone }} </p>
+    <p>Повідомлення: {{ order. message }}</p>
+    <p>Статус замовлення: {{order.status_oder}}</p>
+    <p>Автомобіль {{ order.car.model.brand.name }} {{ order.car.model.name }}</p>
+</div>

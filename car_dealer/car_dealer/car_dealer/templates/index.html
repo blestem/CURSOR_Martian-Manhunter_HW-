@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Продаж авто</title>
+</head>
+<body>
+<h1>Шукаєш власний транспорт? Ми пропонуємо найкращі нові та вживані автомобілі на продаж за найнижчими цінами!</h1>
+<p>Для отримання додаткової інформації, будь ласка, оберіть одне з посилань нижче:</p>
+<ul>
+    <li><a href="{% url 'cars:car_list' %}">Автомобілі</a></li>
+    <li><a href="{% url 'dealers:dealer_list' %}">Дилери</a></li>
+    <li><a href="{% url 'orders:order_list' %}"></a>Замовлення</li>
+</ul>
+<p><a href="{% url 'newsletters:new_newsletter' %}">Підписатись на новини >>></a></p>
+</body>
+</html>
