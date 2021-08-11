@@ -43,4 +43,9 @@ urlpatterns = [
         'orders/',
         include('apps.orders.urls')
     ),
+
+    path(
+        'newsletters/',
+        include('apps.newsletters.urls')
+    ),
 ]
